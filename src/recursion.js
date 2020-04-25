@@ -52,14 +52,25 @@ var sum = function(array) {
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
   //outer base case: if the array is reduced to empty,
+  if (array.length === 0) {
     //return 0
+    return 0;
+  } else {
   //outer recursive case: else,
     //store the last element
+    let element = array[array.length - 1];
     //truncate the array by 1 (sub-array)
+    array = array.slice(0, -1);
     //inner base case: if the last element of the array is a number,
-      //set total equal to be the current element plus arraySum() called on sub-array
+    if (typeof element === 'number') {
+      //return the current element plus arraySum() called on sub-array
+      return element + arraySum(array);
+    } else {
     //inner recursive case: else (i.e. it's a nested array),
-      //set total equal to arraySum() called on current element plus arraySum() called on sub-array
+      //return arraySum() called on current element plus arraySum() called on sub-array
+      return arraySum(element) + arraySum(array);
+    }
+  }
 };
 
 // 4. Check if a number is even.

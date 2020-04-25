@@ -114,6 +114,28 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  //assume x can be greater than y, y can be greater than x, or x can equal y
+  //base case: when x reaches one before y, y reaches one before x, or if x starts out equal to y:
+  if (x === y || Math.abs(x - y) < 2) {
+    //return empty array
+    return [];
+  } else if (x < y - 1) {
+  //recursive case 1: else if x < y,
+    //set rangeArray to range() called on x + 1 and original y
+    let rangeArray = range(x + 1, y);
+    //insert x + 1 into beginning of rangeArray
+    rangeArray.unshift(x + 1);
+    //return rangeArray
+    return rangeArray;
+  } else {
+  //recursive case 2: else (i.e. y < x),
+    //set rangeArray to range() called on y + 1 and original x
+    let rangeArray = range(x, y + 1);
+    //insert y + 1 into beginning of rangeArray
+    rangeArray.push(y + 1);
+    //return rangeArray
+    return rangeArray;
+  }
 };
 
 // 7. Compute the exponent of a number.

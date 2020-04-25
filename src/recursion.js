@@ -51,6 +51,15 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  //outer base case: if the array is reduced to empty,
+    //return 0
+  //outer recursive case: else,
+    //store the last element
+    //truncate the array by 1 (sub-array)
+    //inner base case: if the last element of the array is a number,
+      //set total equal to be the current element plus arraySum() called on sub-array
+    //inner recursive case: else (i.e. it's a nested array),
+      //set total equal to arraySum() called on current element plus arraySum() called on sub-array
 };
 
 // 4. Check if a number is even.

@@ -27,6 +27,25 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+  //data validation: return 0 if array is empty
+  if (array.length === 0) {
+    return 0;
+  }
+  //base case: return the current element if reached first position of array (counting backwards)
+  if (array.length === 1) {
+    return array[0];
+  }
+  //recursive case: if not at last position of array,
+  if (array.length !== 0) {
+    //store last element from the array
+    let element = array[array.length - 1];
+    //truncate array by 1
+    array = array.slice(0, -1);
+    //set sum equal to the current element + sum() called on the ever-shrinking array
+    let total = element + sum(array);
+    //return finished sum
+    return total;
+  }
 };
 
 // 3. Sum all numbers in an array containing nested arrays.

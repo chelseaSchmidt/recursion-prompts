@@ -92,6 +92,23 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  //negative numbers - treat as trending toward zero
+  //base case: if absolute value of n is less than or equal to 1,
+  if (Math.abs(n) <= 1) {
+    //return 0
+    return 0;
+  } else {
+  //recursive case: else,
+    //define decrementor as -1 if n > 0, +1 if n < 0
+    let decrementor;
+    if (n > 0) {
+      decrementor = -1;
+    } else {
+      decrementor = 1;
+    }
+    //return n - 1 plus sumBelow() called on n decremented
+    return n + decrementor + sumBelow(n + decrementor);
+  }
 };
 
 // 6. Get the integers within a range (x, y).

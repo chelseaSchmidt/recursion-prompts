@@ -7,6 +7,21 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
+  //data validation: do not accept negative integers
+  if (n < 0) {
+    return null;
+  }
+  //base case: if n has been reduced to 1, return 1 to product
+  if (n <= 1) {
+    return 1;
+  }
+  //recursive case: if n is greater than 1,
+  if (n > 1) {
+    //set product equal to n * the next call of factorial() on n - 1
+    let product = factorial(n - 1) * n;
+    //After the recursive case has finished evaluating, return finished product
+    return product;
+  }
 };
 
 // 2. Compute the sum of an array of integers.

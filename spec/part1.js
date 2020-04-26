@@ -418,7 +418,7 @@
       });
 
       // remove the 'x' to enable test
-      xit('optimize for even numbers', function() {
+      it('optimize for even numbers', function() {
         exponent(3,4);
         expect(exponent.callCount).to.be.at.most(4);
 

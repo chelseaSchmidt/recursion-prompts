@@ -150,8 +150,14 @@ var exponent = function(base, exp) {
     return 1;
   } else if (exp > 0) {
   //recursive case 1: else if exponent is positive,
-    //return base * exponent() called on exp minus 1
-    return base * exponent(base, exp - 1);
+    //if exponent is even,
+    if (isEven(exp)) {
+      //optimized path:
+      return exponent(base * base, exp / 2);
+    } else {
+    //else, return base * exponent() called on exp minus 1
+      return base * exponent(base, exp - 1);
+    }
   } else {
   //recursive case 2: else (i.e. exponent is negative),
     //store flipped base * exponent() called on exp + 1

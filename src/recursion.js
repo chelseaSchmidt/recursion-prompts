@@ -172,10 +172,40 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  //n is a power of two if 2^x equals it
+  //if n is 1
+  if (n === 1) {
+    //return true
+    return true;
+  }
+  if (n === 0) {
+    return false;
+  }
+  //base case: if n is between 1 and 2
+  if (n > 1 && n <= 2) {
+    //return n === 2
+    return n === 2;
+  }
+  //recursive case: if n greater than 2
+  if (n > 2) {
+    //return function called on n / 2
+    return powerOfTwo(n / 2);
+  }
 };
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  //base case: if original string length is 0
+  if (string.length === 0) {
+    //return empty string
+    return '';
+  } else {
+  //recursive case: if original string length is greater than zero,
+    //assign new string to itself + current index
+    let reversedString = string.slice(-1) + reverse(string.slice(0, -1));
+    //return new string
+    return reversedString;
+  }
 };
 
 // 10. Write a function that determines if a string is a palindrome.

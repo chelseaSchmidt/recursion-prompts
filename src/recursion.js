@@ -247,50 +247,30 @@ var modulo = function(x, y) {
     return 0;
   }
   if (x > 0 && y > 0) {
-    //path for both positve
-    //base case: if x has been reduced to less than y
     if (x < y) {
-      //return x
       return x;
     } else {
-    //recursive case: else,
-      //return modulo() called on x-y, y
       return modulo(x - y, y);
     }
   }
   if (x > 0 && y < 0) {
-    //path for x positive, y negative
-    //base case: if x has been reduced to less than -y
     if (x < -y) {
-      //return -x
       return -x;
     } else {
-    //recursive case: else,
-      //return modulo() called on x + y, y
       return modulo(x + y, y);
     }
   }
   if (x < 0 && y > 0) {
-    //path for x negative, y positive
-    //base case: if -x has been reduced to less than y
     if (-x < y) {
-      //return x
       return x;
     } else {
-    //recursive case: else,
-      //return modulo() called on x + y, y
       return modulo(x + y, y);
     }
   }
   if (x < 0 && y < 0) {
-    //path for both negative
-    //base case: if absolute value of x is less than abs val of y
     if (-x < -y) {
-      //return x
       return x;
     } else {
-    //recursive case: else,
-      //return modulo() called on x - y, y
       return modulo(x - y, y);
     }
   }

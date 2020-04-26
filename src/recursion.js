@@ -237,6 +237,63 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+  if (y === 0) {
+    return NaN;
+  }
+  if (x === 0) {
+    return 0;
+  }
+  if (x === y) {
+    return 0;
+  }
+  if (x > 0 && y > 0) {
+    //path for both positve
+    //base case: if x has been reduced to less than y
+    if (x < y) {
+      //return x
+      return x;
+    } else {
+    //recursive case: else,
+      //return modulo() called on x-y, y
+      return modulo(x - y, y);
+    }
+  }
+  if (x > 0 && y < 0) {
+    //path for x positive, y negative
+    //base case: if x has been reduced to less than -y
+    if (x < -y) {
+      //return -x
+      return -x;
+    } else {
+    //recursive case: else,
+      //return modulo() called on x + y, y
+      return modulo(x + y, y);
+    }
+  }
+  if (x < 0 && y > 0) {
+    //path for x negative, y positive
+    //base case: if -x has been reduced to less than y
+    if (-x < y) {
+      //return x
+      return x;
+    } else {
+    //recursive case: else,
+      //return modulo() called on x + y, y
+      return modulo(x + y, y);
+    }
+  }
+  if (x < 0 && y < 0) {
+    //path for both negative
+    //base case: if absolute value of x is less than abs val of y
+    if (-x < -y) {
+      //return x
+      return x;
+    } else {
+    //recursive case: else,
+      //return modulo() called on x - y, y
+      return modulo(x - y, y);
+    }
+  }
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or

@@ -279,29 +279,19 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
-  //if y is 0
   if (y === 0) {
-    //return 0
     return 0;
   }
-  //base case 1: if y is 1,
   if (y === 1) {
-    //return x
     return x;
   }
-  //recursive case 1: if y > 1
   if (y > 1) {
-    //return x + multiply() called on x, y - 1
     return x + multiply(x, y - 1);
   }
-  //base case 2: if y is -1
   if (y === -1) {
-    //return -x
     return -x;
   }
-  //recursive case 2: if y < -1
   if (y < -1) {
-    //return -x + multiply() called on x, y + 1
     return -x + multiply(x, y + 1);
   }
 };
